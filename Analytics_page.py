@@ -175,7 +175,7 @@ expend_page = html.Div([
                                                                         ),
                                                                     html.Br(),
                                                                     output_card(card_id='cred3',card_label='Credit 3', 
-                                                                                icon='bi bi-cash-coin', style={'backgroundColor': 'green'}
+                                                                                icon='bi bi-cash-coin', style={'backgroundColor': 'yellow'}
                                                                                 ),
                                                                    
                                                                 ]
@@ -183,9 +183,15 @@ expend_page = html.Div([
                                             ]
                                         ),
                                     
-                                    dbc.Row([output_card(card_id='newcard', card_label='test card')]),
+                                    #dbc.Row([output_card(card_id='newcard', card_label='test card')]),
                                     html.Br(),
-                                    dbc.Row([
+                                    dbc.Row([html.Div([('Expenditure: Visualization of average expenditure of selected items per state'),
+     dcc.Dropdown(LSMS_df.state_name.unique(), id='state_name',placeholder='Select a city'),
+     html.Div(id='output_container',children=[]),
+     html.Br(),
+     dcc.Graph(id='state_graph'),
+    
+])
                                         ]),
                                     
                                     html.Div([], id="container_to_render")
