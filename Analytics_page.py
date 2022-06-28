@@ -82,7 +82,7 @@ expend_page = html.Div([
                                                                                             html.H3(id='avg2',
                                                                                                     children='50'
                                                                                                     ),
-                                                                                            html.P('Average income')
+                                                                                            html.P('Min Exependiture')
                                                                                         ]
                                                                                     ),
                                                                                 dbc.Card(
@@ -105,7 +105,7 @@ expend_page = html.Div([
                                                                                             html.H3(id='avg3',
                                                                                                     children='50'
                                                                                                     ),
-                                                                                            html.P('Average 3')
+                                                                                            html.P('Average Income')
                                                                                         ]
                                                                                     ),
                                                                                 dbc.Card(
