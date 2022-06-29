@@ -135,7 +135,7 @@ expend_page = html.Div([
                                                                                             html.H3(id='cred1',
                                                                                                     children='50'
                                                                                                     ),
-                                                                                            html.P('Credit 1')
+                                                                                            html.P('Min Income earning')
                                                                                         ]
                                                                                     ),
                                                                                 dbc.Card(
@@ -158,7 +158,7 @@ expend_page = html.Div([
                                                                                             html.H3(id='cred2',
                                                                                                     children='50'
                                                                                                     ),
-                                                                                            html.P('Credit 2')
+                                                                                            html.P('Max Income earning')
                                                                                         ]
                                                                                     ),
                                                                                 dbc.Card(
