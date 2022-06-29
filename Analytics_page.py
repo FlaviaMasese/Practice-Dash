@@ -185,7 +185,9 @@ expend_page = html.Div([
                                     
                                     #dbc.Row([output_card(card_id='newcard', card_label='test card')]),
                                     html.Br(),
-                                    dbc.Row([html.Div([
+                                    dbc.Row([html.Div([('Expenditure: Visualization of average expenditure of selected items per state'),
+     dcc.Dropdown(LSMS_df.state_name.unique(), id='state_name',placeholder='Select a city'),
+                                              
      html.Div(id='output_container',children=[]),
      html.Br(),
      dcc.Graph(id='state_graph'),
