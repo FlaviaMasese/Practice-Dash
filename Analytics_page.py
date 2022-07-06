@@ -47,6 +47,7 @@ LSMS2_df=mutate(LSMS2,state_name=case_when(f.state==1,'Abia', f.state==2,'Adamaw
                                                         f.state==34,'Taraba',f.state==35,'Yobe',f.state==36,'Zamfara',
                                                          f.state==37,'FCT Abuja')
                                         .drop(columns='state'))
+LSMS2_df
 
 
 expend_page = html.Div([
