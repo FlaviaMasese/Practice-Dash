@@ -286,10 +286,10 @@ income_page =html.Div([
             #)
 #)
 
-credit_page = html.Div([
+Items_page = html.Div([
     
     dbc.Row(dbc.Row([dbc.Col(lg=1),
-                     output_card(card_id='cred', card_label='Average credit')
+                     output_card(card_id='Item_avg', card_label='Expenditure on Items')
                     ]
                     )
            )
@@ -307,7 +307,7 @@ page_view = html.Div(
     [
         dtc.SideBar(children=[
                                 dtc.SideBarItem(id='income_sidebar', label='Income', icon='far fa-money-bill-alt'),
-                                dtc.SideBarItem(id='credit_sidebar', label='Credit', icon='bi bi-credit-card'),
+                                dtc.SideBarItem(id='Items_sidebar', label='Expenditure_Item_desc', icon='bi bi-credit-card'),
                                 dtc.SideBarItem(id='expend_sidebar', label='Expenditure', icon='bi bi-wallet-fill')
                             ]),
         html.Div([], id="content")
