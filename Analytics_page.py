@@ -231,7 +231,7 @@ income_page =html.Div([
                                                                                         children=[
                                                                                             html.H3(id='Avg_Inc'
                                                                                                     ),
-                                                                                            html.P('Average income')
+                                                                                            html.P('Average income per state')
                                                                                         ]
                                                                                     ),
                                                                                 dbc.Card(
@@ -266,12 +266,57 @@ income_page =html.Div([
 #)
 
 Items_page = html.Div([
-    
-    dbc.Row(dbc.Row([dbc.Col(lg=1),
-                     output_card(card_id='Item_avg', card_label='Expenditure on Items')
-                    ]
+                    dbc.Row(
+                            children=[ 
+                                     dbc.Col(lg=1),
+                                     dbc.Col(lg=2, #style={'marginRight': '2%'},
+                                             children=[
+                                                    dbc.Label('Select State'),
+                                                    dcc.Dropdown(id='item_desc_dropdown',
+                                                       options=[{'label': item_desc, 'value': item_desc}
+                                                        for item_desc in LSMS_df['item_desc'].unique()
+                                                        ],
+                                                              placeholder='Select item_desc '
+                                                                 )
+                            ]
+                        
+                                           ),
+                                     dbc.Col(lg=9,
+                                           children=[
+                                                   dbc.Row(
+                                                        children=[
+                                                                 dbc.Row(
+                                                                        children=[
+                                                                               dbc.Col(
+                                                                               dbc.CardGroup(
+                                                                                           children=[
+                                                                                            dbc.Card(
+                                                                                                    children=[
+                                                                                                          html.H3(id='item'
+                                                                                                    ),
+                                                                                                          html.P('Average item_desc')
+                                                                                        ]
+                                                                                    ),
+                                                                                dbc.Card(
+                                                                                        children=[
+                                                                                            html.Div(
+                                                                                                className='bi bi-cash-coin',
+                                                                                                style=card_icon
+                                                                                            )
+                                                                                        ],
+                                                                                        style={"backgroundColor": 'green'}
+                                                                                )
+                                                                            ]
+                                                                        )
+                                                                    ),
+                                                                            ]
+                                                                )
+                                            ]
+                                    )
+                            ]
                     )
-           )
+            ]
+    )
 ])
 
 welcome_page = html.Div([
