@@ -19,7 +19,7 @@ LSMS1.dropna(subset=['expenditure'],inplace=True)
 LSMS1.dropna(subset=['labour_type'],inplace=True)
 LSMS1.dropna(subset=['credit'],inplace=True)
 from datar.all import case_when, f, mutate, pivot_wider
-LSMS1_df=mutate(LSMS1,state_name=case_when(f.state==1,'Abia', f.state==2,'Adamawa',f.state==3,'Akwa Ibom',
+LSMS_df=mutate(LSMS1,state_name=case_when(f.state==1,'Abia', f.state==2,'Adamawa',f.state==3,'Akwa Ibom',
                                                          f.state==4,'Anambra',f.state==5,'Bauchi',f.state==6,'Bayelsa',
                                                           f.state==7,'Benue',f.state==8,'Borno',f.state==9,'Cross River',
                                                        f.state==10,'Delta', f.state==11,'Ebonyi',f.state==12,'Edo', 
@@ -33,3 +33,4 @@ LSMS1_df=mutate(LSMS1,state_name=case_when(f.state==1,'Abia', f.state==2,'Adamaw
                                                         f.state==34,'Taraba',f.state==35,'Yobe',f.state==36,'Zamfara',
                                                          f.state==37,'FCT Abuja')
                                         .drop(columns='state',inplace=True))
+LSMS_df
