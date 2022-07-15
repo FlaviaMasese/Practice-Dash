@@ -32,5 +32,5 @@ LSMS_df=mutate(LSMS1,state_name=case_when(f.state==1,'Abia', f.state==2,'Adamawa
                                                          f.state==31,'Plateau',f.state==32,'Rivers',f.state==33,'Sokoto',
                                                         f.state==34,'Taraba',f.state==35,'Yobe',f.state==36,'Zamfara',
                                                          f.state==37,'FCT Abuja')
-                                        .drop(columns='state',inplace=True))
+                                        .drop(columns='state'))
 LSMS_df

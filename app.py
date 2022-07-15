@@ -174,7 +174,7 @@ def update_graph(state_selected, avg_expensed ):
     fig=px.bar(data_frame=df,
                 x='item_desc',
                 y='expenditure',
-                color='item_desc',
+                color='state_name',
                 opacity=0.9,
                 orientation='v',
                 barmode='relative',
