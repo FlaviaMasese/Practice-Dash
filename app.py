@@ -174,7 +174,7 @@ def update_graph(state_selected, avg_expensed ):
     fig=px.bar(data_frame=df,
                 x='item_desc',
                 y='expenditure',
-                color='state_name',
+                color='item_desc',
                 opacity=0.9,
                 orientation='v',
                 barmode='relative',
@@ -266,4 +266,4 @@ def show_sidebar_content(income_sidebar: str, Items_sidebar: str, expend_sidebar
     else:
         return Analytics_page.welcome_page
 if __name__ == '__main__':
-    app.run_server(debug=False,use_reloader=False,)    
+    app.run_server(port=1235, debug=False,use_reloader=False,)    
