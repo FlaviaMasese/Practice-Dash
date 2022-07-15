@@ -247,11 +247,11 @@ def render_avg_desc_dropdown(state_selected):
 @app.callback(
               Output("content", "children"),
               Input("income_sidebar", "n_clicks_timestamp"),
-              Input("Items_sidebar", "n_clicks_timestamp"),
+              Input("Credit_sidebar", "n_clicks_timestamp"),
               Input("expend_sidebar", "n_clicks_timestamp")
               )
 
-def show_sidebar_content(income_sidebar: str, Items_sidebar: str, expend_sidebar: str):
+def show_sidebar_content(income_sidebar: str, Credit_sidebar: str, expend_sidebar: str):
     ctx = dash.callback_context
     button_clicked = ctx.triggered[0]["prop_id"].split(".")[0]
 
@@ -259,7 +259,7 @@ def show_sidebar_content(income_sidebar: str, Items_sidebar: str, expend_sidebar
         button_clicked = "None"
     elif button_clicked == "income_sidebar":
         return Analytics_page.income_page
-    elif button_clicked == "Items_sidebar":
+    elif button_clicked == "Credit_sidebar":
         return Analytics_page.Items_page
     elif button_clicked == "expend_sidebar":
         return Analytics_page.expend_page
