@@ -18,8 +18,12 @@ LSMS1.dropna(subset=['Income_dist'],inplace=True)
 LSMS1.dropna(subset=['expenditure'],inplace=True)
 LSMS1.dropna(subset=['labour_type'],inplace=True)
 LSMS1.dropna(subset=['credit'],inplace=True)
+LSMS1_data_list=['KEROSENE', 'PALM KERNEL OIL', 'OTHER LIQUID COOKING FUEL', 'ELECTRICITY', 'CANDLES', 'FIREWOOD', 'CHARCOAL', 
+                'PETROL','DIESEL']
+LSMS1_sv=LSMS1[LSMS1.item_desc.isin(LSMS1_data_list)]
+
 from datar.all import case_when, f, mutate, pivot_wider
-LSMS_df=mutate(LSMS1,state_name=case_when(f.state==1,'Abia', f.state==2,'Adamawa',f.state==3,'Akwa Ibom',
+LSMS_df=mutate(LSMS1_sv,state_name=case_when(f.state==1,'Abia', f.state==2,'Adamawa',f.state==3,'Akwa Ibom',
                                                          f.state==4,'Anambra',f.state==5,'Bauchi',f.state==6,'Bayelsa',
                                                           f.state==7,'Benue',f.state==8,'Borno',f.state==9,'Cross River',
                                                        f.state==10,'Delta', f.state==11,'Ebonyi',f.state==12,'Edo', 

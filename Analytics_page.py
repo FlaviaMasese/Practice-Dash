@@ -209,7 +209,7 @@ income_page =html.Div([
                                                                                         children=[
                                                                                             html.H3(id='Avg_Inc'
                                                                                                     ),
-                                                                                            html.P('Average income per state')
+                                                                                            html.P('Average income per Labour Type')
                                                                                         ]
                                                                                     ),
                                                                                 dbc.Card(
@@ -227,9 +227,20 @@ income_page =html.Div([
                                                                             ]
                                                                 )
                                             ]
-                                    )
+                                    ),
+                                              html.Br(),
+                                    dbc.Row([html.Div([('Average Income distribution per labour type'),
+     dcc.Dropdown(LSMS_df.labour_type.unique(), id='labour_type',placeholder='Select labour type'),
+                                              
+     html.Div(id='output_container',children=[]),
+     html.Br(),
+     dcc.Graph(id='labour_graph'),
+                            ])
+                    
+                                    ])
                             ]
                     )
+                    
             ]
     )
 ])
@@ -249,16 +260,16 @@ Credit_page = html.Div([
                                      dbc.Col(lg=1),
                                      dbc.Col(lg=2, #style={'marginRight': '2%'},
                                              children=[
-                                                    dbc.Label('Select State'),
-                                                    dcc.Dropdown(id='item_desc_dropdown',
-                                                       options=[{'label': item_desc, 'value': item_desc}
-                                                        for item_desc in LSMS_df['item_desc'].unique()
+                                                    dbc.Label('labour type'),
+                                                    dcc.Dropdown(id='labour_type_dropdown',
+                                                       options=[{'label': 'labour_type', 'value': labour_type}
+                                                        for labour_type in LSMS_df['labour_type'].unique()
                                                         ],
-                                                              placeholder='Select item_desc '
+                                                              placeholder='Select Labour type '
                                                                  )
-                            ]
+                                                ]
                         
-                                           ),
+                                    ),
                                      dbc.Col(lg=9,
                                            children=[
                                                    dbc.Row(
@@ -270,7 +281,7 @@ Credit_page = html.Div([
                                                                                            children=[
                                                                                             dbc.Card(
                                                                                                     children=[
-                                                                                                          html.H3(id='item'
+                                                                                                          html.H3(id='cre'
                                                                                                     ),
                                                                                                           html.P('Average Credit')
                                                                                         ]
@@ -285,16 +296,187 @@ Credit_page = html.Div([
                                                                                         style={"backgroundColor": 'green'}
                                                                                 )
                                                                             ]
-                                                                        )
-                                                                    ),
+                                                                            )
+                                                                            ),
+                                                                    ]
+                                                        )
+                                                    ]
+                                                    )
+                                        ]
+                                        ),
+                                        dbc.Col(lg=9,
+                                             children=[
+                                                   dbc.Row(
+                                                        children=[
+                                                                 dbc.Row(
+                                                                        children=[
+                                                                               dbc.Col(
+                                                                               dbc.CardGroup(
+                                                                                           children=[
+                                                                                            dbc.Card(
+                                                                                                    children=[
+                                                                                                          html.H3(id='cre1'
+                                                                                                    ),
+                                                                                                          html.P('Min Average Credit')
+                                                                                        ]
+                                                                                    ),
+                                                                                dbc.Card(
+                                                                                        children=[
+                                                                                            html.Div(
+                                                                                                className='bi bi-cash-coin',
+                                                                                                style=card_icon
+                                                                                            )
+                                                                                        ],
+                                                                                        style={"backgroundColor": 'green'}
+                                                                                )
+                                                                                        ]
+                                                                            )
+                                                                            ),
+                                                                    ]
+                                                                    )
+                                                    ]
+                                                    )
+                                                ]
+                                    ),
+                                        dbc.Col(lg=9,
+                                           children=[
+                                                   dbc.Row(
+                                                        children=[
+                                                                 dbc.Row(
+                                                                        children=[
+                                                                               dbc.Col(
+                                                                               dbc.CardGroup(
+                                                                                           children=[
+                                                                                            dbc.Card(
+                                                                                                    children=[
+                                                                                                          html.H3(id='cre'
+                                                                                                    ),
+                                                                                                          html.P(' Max Average Credit')
+                                                                                        ]
+                                                                                    ),
+                                                                                dbc.Card(
+                                                                                        children=[
+                                                                                            html.Div(
+                                                                                                className='bi bi-cash-coin',
+                                                                                                style=card_icon
+                                                                                            )
+                                                                                        ],
+                                                                                        style={"backgroundColor": 'green'}
+                                                                                )
                                                                             ]
-                                                                )
-                                            ]
-                                    )
-                            ]
-                    )
-            ]
-    )
+                                                                            )
+                                                                            ),
+                                                                    ]
+                                                                    )
+                                                    ]
+                                                    )
+                                        ]
+                                        ),
+                                         dbc.Col(lg=9,
+                                           children=[
+                                                   dbc.Row(
+                                                        children=[
+                                                                 dbc.Row(
+                                                                        children=[
+                                                                               dbc.Col(
+                                                                               dbc.CardGroup(
+                                                                                           children=[
+                                                                                            dbc.Card(
+                                                                                                    children=[
+                                                                                                          html.H3(id='lab'
+                                                                                                    ),
+                                                                                                          html.P('Average Credit/State')
+                                                                                        ]
+                                                                                    ),
+                                                                                dbc.Card(
+                                                                                        children=[
+                                                                                            html.Div(
+                                                                                                className='bi bi-cash-coin',
+                                                                                                style=card_icon
+                                                                                            )
+                                                                                        ],
+                                                                                        style={"backgroundColor": 'green'}
+                                                                                )
+                                                                            ]
+                                                                            )
+                                                                            ),
+                                                                    ]
+                                                                    )
+                                                    ]
+                                                    )
+                                        ]
+                                        ),    
+                                         dbc.Col(lg=9,
+                                           children=[
+                                                   dbc.Row(
+                                                        children=[
+                                                                 dbc.Row(
+                                                                        children=[
+                                                                               dbc.Col(
+                                                                               dbc.CardGroup(
+                                                                                           children=[
+                                                                                            dbc.Card(
+                                                                                                    children=[
+                                                                                                          html.H3(id='lab1'
+                                                                                                    ),
+                                                                                                          html.P('Min Average Credit/State')
+                                                                                        ]
+                                                                                    ),
+                                                                                dbc.Card(
+                                                                                        children=[
+                                                                                            html.Div(
+                                                                                                className='bi bi-cash-coin',
+                                                                                                style=card_icon
+                                                                                            )
+                                                                                        ],
+                                                                                        style={"backgroundColor": 'green'}
+                                                                                )
+                                                                                        ]
+                                                                            )
+                                                                            ),
+                                                                    ]
+                                                                    )
+                                                    ]
+                                                    )
+                                        ]
+                                        ),
+                                         dbc.Col(lg=9,
+                                           children=[
+                                                   dbc.Row(
+                                                        children=[
+                                                                 dbc.Row(
+                                                                        children=[
+                                                                               dbc.Col(
+                                                                               dbc.CardGroup(
+                                                                                           children=[
+                                                                                            dbc.Card(
+                                                                                                    children=[
+                                                                                                          html.H3(id='lab2'
+                                                                                                    ),
+                                                                                                          html.P('Max Average Credit/State')
+                                                                                        ]
+                                                                                    ),
+                                                                                dbc.Card(
+                                                                                        children=[
+                                                                                            html.Div(
+                                                                                                className='bi bi-cash-coin',
+                                                                                                style=card_icon
+                                                                                            )
+                                                                                        ],
+                                                                                        style={"backgroundColor": 'green'}
+                                                                                )
+                                                                                         ]
+                                                                            )
+                                                                            ),
+                                                                    ]
+                                                                    )
+                                                    ]
+                                                    )
+                                        ]
+                                        )
+                                     
+                        ]
+                )
 ])
 
 welcome_page = html.Div([

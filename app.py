@@ -229,20 +229,73 @@ def render_state_avg_income(state_selected):
     return f'{round(state5_Inc_Avg, 2)}'
 
 @app.callback(Output(component_id='Avg_Inc', component_property='children'),
+              Output(component_id='labour_graph',component_property='figure'),
               Input(component_id='state_dropdown', component_property='value'),
+              Input(component_id='labour_type',component_property='value')
               )
-def render_state_avg_income(state_selected):
-    state6_df = LSMS_df[LSMS_df['state_name'] == state_selected] 
-    state6_Inc_Avg = state6_df['Income_dist'].mean()  
-    return f'{round(state6_Inc_Avg, 2)}'
+def update_graph(labour_selected, avg_Income ):
+    df2 = LSMS_df[LSMS_df['labour_type']==labour_selected]
+    fig2=px.bar(LSMS_df,
+           x='labour_type',
+           y='Income_dist',
+           color='labour_type',
+           barmode='relative',
+           labels={'Average Income distribution per labour type'},
+           title='Graph of {labour_selected}',
+           template='plotly_dark',
+)
+    state_df72 = LSMS_df[LSMS_df['labour_type']==labour_selected] 
+    state72_avg_expd = LSMS_df.groupby('labour_type')['Income_dist'].mean()  
+    return fig2, f'{round(state72_avg_expd, 2)}'
 
-@app.callback(Output(component_id='item', component_property='children'),
-              Input(component_id='item_desc_dropdown', component_property='value'),
+
+@app.callback(Output(component_id='cre', component_property='children'),
+              Input(component_id='labour_type_dropdown', component_property='value'),
               )
-def render_avg_desc_dropdown(state_selected):
-    state7_df = LSMS_df[LSMS_df['state_name'] == state_selected] 
-    state7_Inc_Avg = state7_df['Credit'].mean()
-    return f'{round(state7_Inc_Avg, 2)}'
+def render_avg_labour_dropdown(LabourType_selected):
+    state73_df = LSMS_df[LSMS_df['labour_type'] == LabourType_selected] 
+    state73_Inc_Avg = state73_df['credit'].mean()
+    return f'{round(state73_Inc_Avg, 2)}'
+
+@app.callback(Output(component_id='cre1', component_property='children'),
+              Input(component_id='labour_type_dropdown', component_property='value'),
+              )
+def render_avg_labour_dropdown(LabourType_selected):
+    state74_df = LSMS_df[LSMS_df['labour_type'] == LabourType_selected] 
+    state74_Inc_Avg = state74_df['credit'].min()
+    return f'{round(state74_Inc_Avg, 2)}'
+
+@app.callback(Output(component_id='cre2', component_property='children'),
+              Input(component_id='labour_type_dropdown', component_property='value'),
+              )
+def render_avg_labour_dropdown(LabourType_selected):
+    state75_df = LSMS_df[LSMS_df['labour_type'] == LabourType_selected] 
+    state75_Inc_Avg = state75_df['credit'].max()
+    return f'{round(state75_Inc_Avg, 2)}'
+
+@app.callback(Output(component_id='lab', component_property='children'),
+              Input(component_id='labour_type_dropdown', component_property='value'),
+              )
+def render_avg_labour_dropdown(LabourType_selected):
+    state76_df = LSMS_df[LSMS_df['labour_type'] == LabourType_selected] 
+    state76_Inc_Avg = state76_df('labour_type')['credit'].mean()
+    return f'{round(state76_Inc_Avg, 2)}'
+
+@app.callback(Output(component_id='lab1', component_property='children'),
+              Input(component_id='labour_type_dropdown', component_property='value'),
+              )
+def render_avg_labour_dropdown(LabourType_selected):
+    state77_df = LSMS_df[LSMS_df['labour_type'] == LabourType_selected] 
+    state77_Inc_Avg = state77_df('labour_type')['credit'].min()
+    return f'{round(state77_Inc_Avg, 2)}'
+
+@app.callback(Output(component_id='lab2', component_property='children'),
+              Input(component_id='labour_type_dropdown', component_property='value'),
+              )
+def render_avg_labour_dropdown(LabourType_selected):
+    state78_df = LSMS_df[LSMS_df['labour_type'] == LabourType_selected] 
+    state78_Inc_Avg = state78_df['credit'].max()
+    return f'{round(state78_Inc_Avg, 2)}'
 
 @app.callback(
               Output("content", "children"),
