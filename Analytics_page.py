@@ -187,7 +187,7 @@ income_page =html.Div([
                     dbc.Col(lg=2, #style={'marginRight': '2%'},
                             children=[
                                 dbc.Label('Select State'),
-                                dcc.Dropdown(id='state2_dropdown',
+                                dcc.Dropdown(id='state_dropdown',
                                                 options=[{'label': state, 'value': state}
                                                         for state in LSMS_df['state_name'].unique()
                                                         ],
@@ -261,12 +261,12 @@ Credit_page = html.Div([
                                      dbc.Col(lg=1),
                                      dbc.Col(lg=2, #style={'marginRight': '2%'},
                                              children=[
-                                                    dbc.Label('labour type'),
-                                                    dcc.Dropdown(id='labour_type_dropdown',
-                                                       options=[{'label': 'labour_type', 'value': labour_type}
-                                                        for labour_type in LSMS_df['labour_type'].unique()
+                                                    dbc.Label('Select State'),
+                                                    dcc.Dropdown(id='state_dropdown',
+                                                       options=[{'label': state, 'value': state}
+                                                        for state in LSMS_df['state_name'].unique()
                                                         ],
-                                                              placeholder='Select Labour type '
+                                                              placeholder='Select state'
                                                                  )
                                                 ]
                         
@@ -291,7 +291,7 @@ Credit_page = html.Div([
             ),
                     html.Br(),
                     dbc.Row(dbc.Row([dbc.Col(lg=1),
-                    output_card(card_id='cre2', card_label='Min Average Credit')
+                    output_card(card_id='cre2', card_label='Max Average Credit')
                                    ])
                    
                    )
