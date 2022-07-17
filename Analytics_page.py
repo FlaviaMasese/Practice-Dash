@@ -187,11 +187,11 @@ income_page =html.Div([
                     dbc.Col(lg=2, #style={'marginRight': '2%'},
                             children=[
                                 dbc.Label('Select State'),
-                                dcc.Dropdown(id='state_dropdown',
-                                                options=[{'label': state, 'value': state}
-                                                        for state in LSMS_df['state_name'].unique()
-                                                        ],
-                                                placeholder='Select states'
+                                dcc.Dropdown(LSMS_df.labour_type.unique, id='labourType_dropdown',
+                                                #options=[{'label': 'labour_type', 'value': state}
+                                                        #for state in LSMS_df['state_name'].unique()
+                                                        #],
+                                                #placeholder='Select states'
                                                 )
                             ]
                         
@@ -284,7 +284,7 @@ Credit_page = html.Div([
                  
                     html.Br(),  
                     dbc.Row(dbc.Row([dbc.Col(lg=1),
-                    output_card(card_id='cre2', card_label='Min Average Credit')
+                    output_card(card_id='cre1', card_label='Min Average Credit')
                     
                     ]
                     )
