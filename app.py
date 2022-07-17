@@ -313,7 +313,7 @@ def show_sidebar_content(income_sidebar: str, Credit_sidebar: str, expend_sideba
     elif button_clicked == "income_sidebar":
         return Analytics_page.income_page
     elif button_clicked == "Credit_sidebar":
-        return Analytics_page.Items_page
+        return Analytics_page.Credit_page
     elif button_clicked == "expend_sidebar":
         return Analytics_page.expend_page
     else:
