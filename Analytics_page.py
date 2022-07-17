@@ -187,7 +187,7 @@ income_page =html.Div([
                     dbc.Col(lg=2, #style={'marginRight': '2%'},
                             children=[
                                 dbc.Label('Select State'),
-                                dcc.Dropdown(id='state_dropdown',
+                                dcc.Dropdown(id='state2_dropdown',
                                                 options=[{'label': state, 'value': state}
                                                         for state in LSMS_df['state_name'].unique()
                                                         ],

@@ -230,7 +230,7 @@ def render_state_avg_income(state_selected):
 
 @app.callback(Output(component_id='Avg_Inc', component_property='children'),
               Output(component_id='labour_graph',component_property='figure'),
-              Input(component_id='state_dropdown', component_property='value'),
+              Input(component_id='state2_dropdown', component_property='value'),
               Input(component_id='labour_type',component_property='value')
               )
 def update_graph(labour_selected, avg_Income ):
