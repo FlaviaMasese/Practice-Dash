@@ -252,24 +252,24 @@ def update_graph(labour_selected, avg_Income ):
 @app.callback(Output(component_id='cre', component_property='children'),
               Input(component_id='labour_type_dropdown', component_property='value'),
               )
-def render_avg_labour_dropdown(LabourType_selected):
-    state73_df = LSMS_df[LSMS_df['labour_type'] == LabourType_selected] 
+def render_avg_labour_dropdown(state_selected):
+    state73_df = LSMS_df[LSMS_df['state_name'] == state_selected] 
     state73_Inc_Avg = state73_df['credit'].mean()
     return f'{round(state73_Inc_Avg, 2)}'
 
 @app.callback(Output(component_id='cre1', component_property='children'),
               Input(component_id='labour_type_dropdown', component_property='value'),
               )
-def render_avg_labour_dropdown(LabourType_selected):
-    state74_df = LSMS_df[LSMS_df['labour_type'] == LabourType_selected] 
+def render_avg_labour_dropdown(state_selected):
+    state74_df = LSMS_df[LSMS_df['state_name'] == state_selected]  
     state74_Inc_Avg = state74_df['credit'].min()
     return f'{round(state74_Inc_Avg, 2)}'
 
 @app.callback(Output(component_id='cre2', component_property='children'),
               Input(component_id='labour_type_dropdown', component_property='value'),
               )
-def render_avg_labour_dropdown(LabourType_selected):
-    state75_df = LSMS_df[LSMS_df['labour_type'] == LabourType_selected] 
+def render_avg_labour_dropdown(state_selected):
+    state75_df = LSMS_df[LSMS_df['state_name'] == state_selected]  
     state75_Inc_Avg = state75_df['credit'].max()
     return f'{round(state75_Inc_Avg, 2)}'
 
