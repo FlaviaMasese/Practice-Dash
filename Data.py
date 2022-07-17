@@ -1,27 +1,24 @@
+#%%
 import pandas as pd
 import io
+#%%
 LSMS1=pd.read_csv(r'C:\Users\flavi\Downloads\data for practice\sect11b_harvestw3.csv')
 LSMS2=pd.read_csv(r'C:\Users\flavi\Downloads\data for practice\sect3_plantingw3.csv',low_memory=False)
-LSMS1['s3q21a']=pd.Series(LSMS2['s3q21a'])
-print(LSMS1)
-LSMS1['s3q13a']=pd.Series(LSMS2['s3q13a'])
-print(LSMS1)
-LSMS3 = pd.read_csv(r'C:\Users\flavi\Downloads\data for practice\sect4c2_plantiNG.csv')
-LSMS1['s4cq6']=pd.Series(LSMS3['s4cq6'])
-print(LSMS1)
+#%%
 LSMS1.rename(columns={'s11bq4': 'expenditure',},inplace=True)
-LSMS1.rename(columns={'s3q21a': 'Income_dist',},inplace=True)
-LSMS1.rename({'s3q21a':'Income_earn'},inplace=True)
-LSMS1.rename(columns={"s4cq6": "credit"}, inplace=True)
-LSMS1.rename(columns={"s3q13a": 'labour_type'}, inplace=True)
-LSMS1.dropna(subset=['Income_dist'],inplace=True)
+LSMS1.rename(columns={'s11bq3':'purchase'},inplace=True)
+#%%
+LSMS2.rename(columns={"s3q13a": 'labour_type'}, inplace=True)
+LSMS2.rename(columns={'s3q21a': 'Income_dist',},inplace=True)
+#%%
+LSMS2.dropna(subset=['Income_dist'],inplace=True)
 LSMS1.dropna(subset=['expenditure'],inplace=True)
-LSMS1.dropna(subset=['labour_type'],inplace=True)
-LSMS1.dropna(subset=['credit'],inplace=True)
+LSMS2.dropna(subset=['labour_type'],inplace=True)
+#%%
 LSMS1_data_list=['KEROSENE', 'PALM KERNEL OIL', 'OTHER LIQUID COOKING FUEL', 'ELECTRICITY', 'CANDLES', 'FIREWOOD', 'CHARCOAL', 
                 'PETROL','DIESEL']
 LSMS1_sv=LSMS1[LSMS1.item_desc.isin(LSMS1_data_list)]
-
+#%%
 from datar.all import case_when, f, mutate, pivot_wider
 LSMS_df=mutate(LSMS1_sv,state_name=case_when(f.state==1,'Abia', f.state==2,'Adamawa',f.state==3,'Akwa Ibom',
                                                          f.state==4,'Anambra',f.state==5,'Bauchi',f.state==6,'Bayelsa',
@@ -38,3 +35,4 @@ LSMS_df=mutate(LSMS1_sv,state_name=case_when(f.state==1,'Abia', f.state==2,'Adam
                                                          f.state==37,'FCT Abuja')
                                         .drop(columns='state'))
 LSMS_df
+#%%
