@@ -1,6 +1,7 @@
 #%%
 import pandas as pd
 import io
+import numpy as np
 #%%
 LSMS1=pd.read_csv(r'C:\Users\flavi\Downloads\data for practice\sect11b_harvestw3.csv')
 LSMS2=pd.read_csv(r'C:\Users\flavi\Downloads\data for practice\sect3_plantingw3.csv',low_memory=False)
