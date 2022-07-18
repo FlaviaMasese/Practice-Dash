@@ -204,40 +204,47 @@ def render_state_avg_income(state_selected):
     stateX_Min_Avg = stateX_df['expenditure'].max()  
     return f'{round(stateX_Min_Avg, 2)}'
 
-
 @app.callback(Output(component_id='cred1', component_property='children'),
               Input(component_id='state_dropdown', component_property='value')
               )
 def render_state_avg_income(state_selected):
-    state2_df = LSMS_df[LSMS_df['state_name'] == state_selected] 
-    state2_Inc_Avg = state2_df[['purchase']==1].mean()  
+    state2_df = LSMS2_df[LSMS2_df['state_name'] == state_selected] 
+    state2_Inc_Avg = state2_df['Income_dist'].mean()  
     return f'{round(state2_Inc_Avg, 2)}'
 
 @app.callback(Output(component_id='cred2', component_property='children'),
               Input(component_id='state_dropdown', component_property='value')
               )
 def render_state_avg_income(state_selected):
-    state4_df = LSMS_df[LSMS_df['state_name'] == state_selected] 
-    state4_Inc_Avg = state4_df[['purchase']==2].mean()
+    state4_df = LSMS2_df[LSMS2_df['state_name'] == state_selected] 
+    state4_Inc_Avg = state4_df['Income_dist'].min()
     return f'{round( state4_Inc_Avg, 2)}'
 
 @app.callback(Output(component_id='cred3', component_property='children'),
               Input(component_id='state_dropdown', component_property='value')
               )
 def render_state_avg_income(state_selected):
-    state5_df = LSMS_df[LSMS_df['state_name'] == state_selected] 
-    state5_Inc_Avg = state5_df[['purchase']==1].max()  
+    state5_df = LSMS2_df[LSMS2_df['state_name'] == state_selected] 
+    state5_Inc_Avg = state5_df['Income_dist'].max()  
     return f'{round(state5_Inc_Avg, 2)}'
 
 @app.callback(Output(component_id='Avg_Inc', component_property='children'),
-              Output(component_id='state_graph',component_property='figure'),
+              Input(component_id='state_dropdown', component_property='value'),
+              )
+def render_state_avg_income(state_selected):
+    state6_df = LSMS2_df[LSMS2_df['state_name'] == state_selected] 
+    state6_Inc_Avg = state6_df['Income_dist'].mean()  
+    return f'{round(state6_Inc_Avg, 2)}'
+
+@app.callback(Output(component_id='Avg_Inc', component_property='children'),
+              Output(component_id='state2_graph',component_property='figure'),
               Input(component_id='state_dropdown', component_property='value'),
               Input(component_id='state_name',component_property='value')
               )
-def update_graph(labour_selected, avg_Income ):
-    df = LSMS2_df[LSMS2_df['labour_type']==labour_selected]
+def update_graph(state_selected, avg_expensed ):
+    df = LSMS2_df[LSMS2_df['state_name']==state_selected]
     fig2=px.bar(LSMS2_df,
-           x='labour_type',
+           x='Income_dist',
            y='state_name',
            color='labour_type',
            barmode='relative',
@@ -245,58 +252,39 @@ def update_graph(labour_selected, avg_Income ):
            title='Graph of {labour_selected}',
            template='plotly_dark',
 )
-    state_df72 = LSMS2_df[LSMS2_df['labour_type']==labour_selected] 
-    state72_avg_expd = state_df72('Income_dist').mean()  
-    return fig2, f'{round(state72_avg_expd, 2)}'
+    state23_df = LSMS2_df[LSMS2_df['state_name'] == state_selected] 
+    state23_avg_expd = state23_df['Income_dist'].mean()  
+    return fig2, f'{round(state23_avg_expd, 2)}'
 
 
-@app.callback(Output(component_id='cre', component_property='children'),
-              Input(component_id='labour_type_dropdown', component_property='value'),
-              )
-def render_avg_labour_dropdown(state_selected):
-    state73_df = LSMS_df[LSMS_df['state_name'] == state_selected] 
-    state73_Inc_Avg = state73_df['credit'].mean()
-    return f'{round(state73_Inc_Avg, 2)}'
 
-@app.callback(Output(component_id='cre1', component_property='children'),
-              Input(component_id='labour_type_dropdown', component_property='value'),
-              )
-def render_avg_labour_dropdown(state_selected):
-    state74_df = LSMS_df[LSMS_df['state_name'] == state_selected]  
-    state74_Inc_Avg = state74_df['credit'].min()
-    return f'{round(state74_Inc_Avg, 2)}'
 
-@app.callback(Output(component_id='cre2', component_property='children'),
-              Input(component_id='labour_type_dropdown', component_property='value'),
-              )
-def render_avg_labour_dropdown(state_selected):
-    state75_df = LSMS_df[LSMS_df['state_name'] == state_selected]  
-    state75_Inc_Avg = state75_df['credit'].max()
-    return f'{round(state75_Inc_Avg, 2)}'
 
-#@app.callback(Output(component_id='lab', component_property='children'),
-              #Input(component_id='labour_type_dropdown', component_property='value'),
+
+#@app.callback(Output(component_id='cre', component_property='children'),
+              #Input(component_id='state_dropdown', component_property='value'),
               #)
-#def render_avg_labour_dropdown(LabourType_selected):
-    #state76_df = LSMS_df[LSMS_df['labour_type'] == LabourType_selected] 
-    #state76_Inc_Avg = state76_df('credit').mean()
-    #return f'{round(state76_Inc_Avg, 2)}'
+#def render_avg_labour_dropdown(state_selected):
+    #state73_df = LSMS_df[LSMS_df['state_name'] == state_selected] 
+    #state73_Inc_Avg = state73_df['credit'].mean()
+    #return f'{round(state73_Inc_Avg, 2)}'
 
-#@app.callback(Output(component_id='lab1', component_property='children'),
-              #Input(component_id='labour_type_dropdown', component_property='value'),
+##@app.callback(Output(component_id='cre1', component_property='children'),
+              #Input(component_id='state_dropdown', component_property='value'),
               #)
-#def render_avg_labour_dropdown(LabourType_selected):
-    #state77_df = LSMS_df[LSMS_df['labour_type'] == LabourType_selected] 
-    #state77_Inc_Avg = state77_df('labour_type')['credit'].min()
-    #return f'{round(state77_Inc_Avg, 2)}'
+#def render_avg_labour_dropdown(state_selected):
+    #state74_df = LSMS_df[LSMS_df['state_name'] == state_selected]  
+    #state74_Inc_Avg = state74_df['credit'].min()
+    #return f'{round(state74_Inc_Avg, 2)}'
 
-#@app.callback(Output(component_id='lab2', component_property='children'),
-              #Input(component_id='labour_type_dropdown', component_property='value'),
+#@app.callback(Output(component_id='cre2', component_property='children'),
+              #Input(component_id='state_dropdown', component_property='value'),
               #)
-#def render_avg_labour_dropdown(LabourType_selected):
-    #state78_df = LSMS_df[LSMS_df['labour_type'] == LabourType_selected] 
-    #state78_Inc_Avg = state78_df['credit'].max()
-    #return f'{round(state78_Inc_Avg, 2)}'
+#def render_avg_labour_dropdown(state_selected):
+    #state75_df = LSMS_df[LSMS_df['state_name'] == state_selected]  
+    #state75_Inc_Avg = state75_df['credit'].max()
+    #return f'{round(state75_Inc_Avg, 2)}'
+
 
 @app.callback(
               Output("content", "children"),
@@ -320,4 +308,4 @@ def show_sidebar_content(income_sidebar: str, Credit_sidebar: str, expend_sideba
     else:
         return Analytics_page.welcome_page
 if __name__ == '__main__':
-    app.run_server(port=1235, debug=False,use_reloader=False,)    
+    app.run_server(port=1236, debug=False,use_reloader=False,)    

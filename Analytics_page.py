@@ -113,7 +113,7 @@ expend_page = html.Div([
                                                                                             html.H3(id='cred1',
                                                                                                     children='50'
                                                                                                     ),
-                                                                                            html.P('Average Purchased Items')
+                                                                                            html.P('Average Income Earning')
                                                                                         ]
                                                                                     ),
                                                                                 dbc.Card(
@@ -136,7 +136,7 @@ expend_page = html.Div([
                                                                                             html.H3(id='cred2',
                                                                                                     children='50'
                                                                                                     ),
-                                                                                            html.P('Min Income earning')
+                                                                                            html.P('Income Min earning')
                                                                                         ]
                                                                                     ),
                                                                                 dbc.Card(
@@ -152,7 +152,7 @@ expend_page = html.Div([
                                                                         )
                                                                         ),
                                                                     html.Br(),
-                                                                    output_card(card_id='cred3',card_label='Max Income earning', 
+                                                                    output_card(card_id='cred3',card_label='Income Max earning', 
                                                                                 icon='bi bi-cash-coin', style={'backgroundColor': 'yellow'}
                                                                                 ),
                                                                    
