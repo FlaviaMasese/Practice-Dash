@@ -230,18 +230,11 @@ def render_state_avg_income(state_selected):
     state5_Inc_Avg = state5_df['Income_dist'].max()  
     return f'{round(state5_Inc_Avg, 2)}'
 
-@app.callback(Output(component_id='Avg_Inc', component_property='children'),
-              Input(component_id='state_dropdown', component_property='value'),
-              )
-def render_state_avg_income(state_selected):
-    state6_df = LSMS2_df[LSMS2_df['state_name'] == state_selected] 
-    state6_Inc_Avg = state6_df['Income_dist'].mean()  
-    return f'{round(state6_Inc_Avg, 2)}'
 
 @app.callback(
               Output("content", "children"),
               Input("income_sidebar", "n_clicks_timestamp"),
-              Input("Items_sidebar", "n_clicks_timestamp"),
+              Input("Credit_sidebar", "n_clicks_timestamp"),
               Input("expend_sidebar", "n_clicks_timestamp")
               )
 
