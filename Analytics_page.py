@@ -37,7 +37,7 @@ expend_page = html.Div([
                                                                                         children=[
                                                                                             html.H3(id='avg_expense'
                                                                                                     ),
-                                                                                            html.P('Average Expenditure')
+                                                                                            html.P('Average Purchased Items')
                                                                                         ]
                                                                                     ),
                                                                                 dbc.Card(
@@ -60,7 +60,7 @@ expend_page = html.Div([
                                                                                             html.H3(id='avg2',
                                                                                                     children='50'
                                                                                                     ),
-                                                                                            html.P('Min Expenditure')
+                                                                                            html.P('Average non purshased Items')
                                                                                         ]
                                                                                     ),
                                                                                 dbc.Card(
@@ -83,7 +83,7 @@ expend_page = html.Div([
                                                                                             html.H3(id='avg3',
                                                                                                     children='50'
                                                                                                     ),
-                                                                                            html.P('Max expenditure')
+                                                                                            html.P('Max Purshased Items')
                                                                                         ]
                                                                                     ),
                                                                                 dbc.Card(

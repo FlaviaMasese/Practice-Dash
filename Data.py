@@ -54,4 +54,3 @@ LSMS2_df=mutate(LSMS2_sv,state_name=case_when(f.state==1,'Abia', f.state==2,'Ada
                                                          f.state==37,'FCT Abuja')
                                         .drop(columns='state'))
 LSMS2_df
-#%%
