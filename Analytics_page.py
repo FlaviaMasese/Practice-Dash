@@ -234,7 +234,7 @@ income_page =html.Div([
                                               
      html.Div(id='output_container',children=[]),
      html.Br(),
-     dcc.Graph(id='labour_graph'),
+     dcc.Graph(id='state2_graph'),
                             ])
                     
                                     ])
