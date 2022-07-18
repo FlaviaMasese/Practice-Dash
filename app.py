@@ -14,6 +14,7 @@ from Stylee import cardbody_style, card_icon, cardimg_style, card_style
 from helping_components import output_card
 import Analytics_page
 from Data import LSMS_df
+from Data import LSMS2_df
 
 app = dash.Dash(__name__, external_stylesheets= [dbc.themes.CYBORG, dbc.icons.BOOTSTRAP, dbc.icons.FONT_AWESOME])
 img2 = './Img/stephen-dawson-qwtCeJ5cLYs-unsplash.jpeg'
@@ -209,7 +210,7 @@ def render_state_avg_income(state_selected):
               )
 def render_state_avg_income(state_selected):
     state2_df = LSMS_df[LSMS_df['state_name'] == state_selected] 
-    state2_Inc_Avg = state2_df['Income_dist'].mean()  
+    state2_Inc_Avg = state2_df[['purchase']==1].mean()  
     return f'{round(state2_Inc_Avg, 2)}'
 
 @app.callback(Output(component_id='cred2', component_property='children'),
@@ -217,7 +218,7 @@ def render_state_avg_income(state_selected):
               )
 def render_state_avg_income(state_selected):
     state4_df = LSMS_df[LSMS_df['state_name'] == state_selected] 
-    state4_Inc_Avg = state4_df['Income_dist'].min()
+    state4_Inc_Avg = state4_df[['purchase']==2].mean()
     return f'{round( state4_Inc_Avg, 2)}'
 
 @app.callback(Output(component_id='cred3', component_property='children'),
@@ -225,26 +226,26 @@ def render_state_avg_income(state_selected):
               )
 def render_state_avg_income(state_selected):
     state5_df = LSMS_df[LSMS_df['state_name'] == state_selected] 
-    state5_Inc_Avg = state5_df['Income_dist'].max()  
+    state5_Inc_Avg = state5_df[['purchase']==1].max()  
     return f'{round(state5_Inc_Avg, 2)}'
 
 @app.callback(Output(component_id='Avg_Inc', component_property='children'),
-              Output(component_id='labour_graph',component_property='figure'),
-              Input(component_id='state2_dropdown', component_property='value'),
-              Input(component_id='labour_type',component_property='value')
+              Output(component_id='state_graph',component_property='figure'),
+              Input(component_id='state_dropdown', component_property='value'),
+              Input(component_id='state_name',component_property='value')
               )
 def update_graph(labour_selected, avg_Income ):
-    df = LSMS_df[LSMS_df['labour_type']==labour_selected]
-    fig2=px.bar(LSMS_df,
+    df = LSMS2_df[LSMS2_df['labour_type']==labour_selected]
+    fig2=px.bar(LSMS2_df,
            x='labour_type',
-           y='Income_dist',
+           y='state_name',
            color='labour_type',
            barmode='relative',
            labels={'Average Income distribution per labour type'},
            title='Graph of {labour_selected}',
            template='plotly_dark',
 )
-    state_df72 = LSMS_df[LSMS_df['labour_type']==labour_selected] 
+    state_df72 = LSMS2_df[LSMS2_df['labour_type']==labour_selected] 
     state72_avg_expd = state_df72('Income_dist').mean()  
     return fig2, f'{round(state72_avg_expd, 2)}'
 
