@@ -37,7 +37,7 @@ expend_page = html.Div([
                                                                                         children=[
                                                                                             html.H3(id='avg_expense'
                                                                                                     ),
-                                                                                            html.P('Average Purchased Items')
+                                                                                            html.P('Average Expenditure')
                                                                                         ]
                                                                                     ),
                                                                                 dbc.Card(
@@ -60,7 +60,7 @@ expend_page = html.Div([
                                                                                             html.H3(id='avg2',
                                                                                                     children='50'
                                                                                                     ),
-                                                                                            html.P('Average non purshased Items')
+                                                                                            html.P('Average Min Expenditure')
                                                                                         ]
                                                                                     ),
                                                                                 dbc.Card(
@@ -83,7 +83,7 @@ expend_page = html.Div([
                                                                                             html.H3(id='avg3',
                                                                                                     children='50'
                                                                                                     ),
-                                                                                            html.P('Max Purshased Items')
+                                                                                            html.P('Average Max Expenditure')
                                                                                         ]
                                                                                     ),
                                                                                 dbc.Card(
@@ -113,7 +113,7 @@ expend_page = html.Div([
                                                                                             html.H3(id='cred1',
                                                                                                     children='50'
                                                                                                     ),
-                                                                                            html.P('Average Income Earn')
+                                                                                            html.P('Average Purchased Items')
                                                                                         ]
                                                                                     ),
                                                                                 dbc.Card(
@@ -255,35 +255,35 @@ income_page =html.Div([
 #)
 
 
-#Credit_page = html.Div([
-                    #dbc.Row(
-                            #children=[ 
-                                     #dbc.Col(lg=1),
-                                    # dbc.Col(lg=2, #style={'marginRight': '2%'},
-                                      #       children=[
-                                      #              dbc.Label('Select State'),
-                                       #             dcc.Dropdown(id='state_dropdown',
-                                        #               options=[{'label': state, 'value': state}
-                                        #                for state in LSMS_df['state_name'].unique()
-                                         #               ],
-                                         #                     placeholder='Select state'
-                                           #                      )
-                                              #  ]
+Credit_page = html.Div([
+                    dbc.Row(
+                            children=[ 
+                                     dbc.Col(lg=1),
+                                     dbc.Col(lg=2, #style={'marginRight': '2%'},
+                                             children=[
+                                                    dbc.Label('Select State'),
+                                                    dcc.Dropdown(id='state_dropdown',
+                                                       options=[{'label': state, 'value': state}
+                                                        for state in LSMS_df['state_name'].unique()
+                                                        ],
+                                                              placeholder='Select state'
+                                                                 )
+                                                ]
                         
-                                    #)
-                            #]
-                    #),
+                                    )
+                            ]
+                    ),
                             
-                    #html.Br(),                 
-                    #dbc.Row(dbc.Row([dbc.Col(lg=1),
-                    #output_card(card_id='cre', card_label='Average Credit')
+                    html.Br(),                 
+                    dbc.Row(dbc.Row([dbc.Col(lg=1),
+                    output_card(card_id='cre', card_label='Average Income')
                     
                     
-                           # ])
-            #),
+                            ])
+            ),
                  
                     #html.Br(),  
-                   # dbc.Row(dbc.Row([dbc.Col(lg=1),
+                    #dbc.Row(dbc.Row([dbc.Col(lg=1),
                     #output_card(card_id='cre1', card_label='Min Average Credit')
                     
                     #]
@@ -292,12 +292,12 @@ income_page =html.Div([
                     #html.Br(),
                     #dbc.Row(dbc.Row([dbc.Col(lg=1),
                     #output_card(card_id='cre2', card_label='Max Average Credit')
-                                  # ])
+                                  #])
                    
-                   #)
+                  # )
                     
 
-#])
+])
 
 welcome_page = html.Div([
     dbc.Row(dbc.Row([dbc.Col(lg=1),
