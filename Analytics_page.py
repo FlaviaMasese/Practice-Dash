@@ -6,6 +6,7 @@ from helping_components import output_card
 import pandas as pd
 from datar.all import case_when, f, mutate, pivot_wider
 from Data import LSMS_df
+from Data import LSMS2_df
 
 expend_page = html.Div([
     dbc.Row(
@@ -179,7 +180,6 @@ expend_page = html.Div([
     )
 ])
 
-
 income_page =html.Div([
     dbc.Row(
             children=[ 
@@ -187,11 +187,11 @@ income_page =html.Div([
                     dbc.Col(lg=2, #style={'marginRight': '2%'},
                             children=[
                                 dbc.Label('Select State'),
-                                dcc.Dropdown(LSMS_df.labour_type.unique, id='labourType_dropdown',
-                                                #options=[{'label': 'labour_type', 'value': state}
-                                                        #for state in LSMS_df['state_name'].unique()
-                                                        #],
-                                                #placeholder='Select states'
+                                dcc.Dropdown(id='state_dropdown',
+                                                options=[{'label': state, 'value': state}
+                                                        for state in LSMS_df['state_name'].unique()
+                                                        ],
+                                                placeholder='Select states'
                                                 )
                             ]
                         
@@ -230,7 +230,7 @@ income_page =html.Div([
                                     ),
                                               html.Br(),
                                     dbc.Row([html.Div([('Average Income distribution per labour type'),
-     dcc.Dropdown(LSMS_df.labour_type.unique(), id='labour_type',placeholder='Select labour type'),
+     dcc.Dropdown(LSMS2_df.labour_type.unique(), id='labour_type',placeholder='Select labour type'),
                                               
      html.Div(id='output_container',children=[]),
      html.Br(),
@@ -255,49 +255,49 @@ income_page =html.Div([
 #)
 
 
-Credit_page = html.Div([
-                    dbc.Row(
-                            children=[ 
-                                     dbc.Col(lg=1),
-                                     dbc.Col(lg=2, #style={'marginRight': '2%'},
-                                             children=[
-                                                    dbc.Label('Select State'),
-                                                    dcc.Dropdown(id='state_dropdown',
-                                                       options=[{'label': state, 'value': state}
-                                                        for state in LSMS_df['state_name'].unique()
-                                                        ],
-                                                              placeholder='Select state'
-                                                                 )
-                                                ]
+#Credit_page = html.Div([
+                    #dbc.Row(
+                            #children=[ 
+                                     #dbc.Col(lg=1),
+                                    # dbc.Col(lg=2, #style={'marginRight': '2%'},
+                                      #       children=[
+                                      #              dbc.Label('Select State'),
+                                       #             dcc.Dropdown(id='state_dropdown',
+                                        #               options=[{'label': state, 'value': state}
+                                        #                for state in LSMS_df['state_name'].unique()
+                                         #               ],
+                                         #                     placeholder='Select state'
+                                           #                      )
+                                              #  ]
                         
-                                    )
-                            ]
-                    ),
+                                    #)
+                            #]
+                    #),
                             
-                    html.Br(),                 
-                    dbc.Row(dbc.Row([dbc.Col(lg=1),
-                    output_card(card_id='cre', card_label='Average Credit')
+                    #html.Br(),                 
+                    #dbc.Row(dbc.Row([dbc.Col(lg=1),
+                    #output_card(card_id='cre', card_label='Average Credit')
                     
                     
-                            ])
-            ),
+                           # ])
+            #),
                  
-                    html.Br(),  
-                    dbc.Row(dbc.Row([dbc.Col(lg=1),
-                    output_card(card_id='cre1', card_label='Min Average Credit')
+                    #html.Br(),  
+                   # dbc.Row(dbc.Row([dbc.Col(lg=1),
+                    #output_card(card_id='cre1', card_label='Min Average Credit')
                     
-                    ]
-                    )
-            ),
-                    html.Br(),
-                    dbc.Row(dbc.Row([dbc.Col(lg=1),
-                    output_card(card_id='cre2', card_label='Max Average Credit')
-                                   ])
+                    #]
+                    #)
+            #),
+                    #html.Br(),
+                    #dbc.Row(dbc.Row([dbc.Col(lg=1),
+                    #output_card(card_id='cre2', card_label='Max Average Credit')
+                                  # ])
                    
-                   )
+                   #)
                     
 
-])
+#])
 
 welcome_page = html.Div([
     dbc.Row(dbc.Row([dbc.Col(lg=1),
