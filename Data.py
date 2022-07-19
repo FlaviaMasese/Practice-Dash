@@ -38,7 +38,7 @@ LSMS_df=mutate(LSMS1_sv,state_name=case_when(f.state==1,'Abia', f.state==2,'Adam
 LSMS_df
 #%%
 LSMS2.rename(columns={'s3q13a': 'labour_type',},inplace=True)
-LSMS2_sv=LSMS2[['state','labour_type']]
+LSMS2_sv=LSMS2[['state','labour_type','Income_dist']]
 #%%
 LSMS2_df=mutate(LSMS2_sv,state_name=case_when(f.state==1,'Abia', f.state==2,'Adamawa',f.state==3,'Akwa Ibom',
                                                          f.state==4,'Anambra',f.state==5,'Bauchi',f.state==6,'Bayelsa',
