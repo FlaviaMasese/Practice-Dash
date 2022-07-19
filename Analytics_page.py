@@ -194,12 +194,7 @@ income_page =html.Div([
                                                 #placeholder='Select states'
                                                 #)
                                 dbc.Label('Labour Type'),
-                                dcc.Dropdown(id='labour_dropdown',
-                                                options=[{'label': 'labour_type', 'value': 'labour_type'}
-                                                        for labour_type in LSMS2_df['labour_type'].unique()
-                                                        ],
-                                                placeholder='Select labour type'
-                                                )
+                                dcc.Dropdown(LSMS2_df.labour_type.unique(), id='labour_type',placeholder='Select labour type')
                             ]
                         
                     ),
