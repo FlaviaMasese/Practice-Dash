@@ -230,16 +230,16 @@ income_page =html.Div([
                                                                 )
                                             ]
                                     ),
-                                              html.Br(),
-                                    dbc.Row([html.Div([('Average Income distribution per labour type'),
-     dcc.Dropdown(LSMS2_df.labour_type.unique(), id='labour_type',placeholder='Select labour type'),
+                                              #html.Br(),
+                                    #dbc.Row([html.Div([('Average Income distribution per labour type'),
+     #dcc.Dropdown(LSMS2_df.labour_type.unique(), id='labour_type',placeholder='Select labour type'),
                                               
-     html.Div(id='output_container',children=[]),
-     html.Br(),
-     dcc.Graph(id='state2_graph'),
-                            ])
+     #html.Div(id='output_container',children=[]),
+     #html.Br(),
+     #dcc.Graph(id='state2_graph'),
+                            #])
                     
-                                    ])
+                                    #])
                             ]
                     )
                     
