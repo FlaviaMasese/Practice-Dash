@@ -8,8 +8,6 @@ from datar.all import case_when, f, mutate, pivot_wider
 from Data import LSMS_df
 from Data import LSMS2_df
 
-LSMS3 = pd.read_csv(r'C:\Users\flavi\Downloads\data for practice\sect4c2_plantiNG.csv')
-LSMS3.rename(columns={'s4cq6':'credit',},inplace=True)
 
 expend_page = html.Div([
     dbc.Row(
@@ -280,28 +278,25 @@ Credit_page = html.Div([
                     ),
                             
                     html.Br(),                 
-                    #dbc.Row(dbc.Row([dbc.Col(lg=1),
-                    dbc.Row([output_card(card_id='cre', card_label='Average credit')]),
-                    #output_card(card_id='cre', card_label='Average Income')
-                    dbc.Row([output_card(card_id='cre1', card_label='Min Average Credit')]),
-                    dbc.Row([output_card(card_id='cre2', card_label='Max Average Credit')]),
+                    dbc.Row(dbc.Row([dbc.Col(lg=1),
+                    output_card(card_id='cre', card_label='Average Income')
                     
-                            #])
-            #),
+                    ])
+            ),
                  
-                    #html.Br(),  
-                    #dbc.Col(dbc.Row([dbc.Col(lg=1),
-                    #output_card(card_id='cre1', card_label='Min Average Credit')
+                    html.Br(),  
+                    dbc.Col(dbc.Row([dbc.Col(lg=1),
+                    output_card(card_id='cre1', card_label='Min Average Credit')
                     
-                    #]
-                    #)
-            #),
-                    #html.Br(),
-                    #dbc.Col(dbc.Row([dbc.Col(lg=1),
-                    ##output_card(card_id='cre2', card_label='Max Average Credit')
-                                  #])
+                    ]
+                    )
+            ),
+                    html.Br(),
+                    dbc.Col(dbc.Row([dbc.Col(lg=1),
+                    output_card(card_id='cre2', card_label='Max Average Credit')
+                                  ])
                    
-                   #)
+                   )
                     
 
 ])
