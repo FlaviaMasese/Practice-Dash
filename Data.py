@@ -55,3 +55,8 @@ LSMS2_df=mutate(LSMS2_sv,state_name=case_when(f.state==1,'Abia', f.state==2,'Ada
                                                          f.state==37,'FCT Abuja')
                                         .drop(columns='state'))
 LSMS2_df
+#%%
+LSMS3 = pd.read_csv(r'C:\Users\flavi\Downloads\data for practice\sect4c2_plantiNG.csv')
+LSMS3.rename(columns={'s4cq6':'credit',},inplace=True)
+LSMS3
+#%%

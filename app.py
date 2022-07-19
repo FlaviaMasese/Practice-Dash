@@ -1,3 +1,4 @@
+#%%
 import pandas as pd
 import numpy as np
 import plotly.express as px
@@ -13,9 +14,11 @@ import plotly.graph_objs as go
 from Stylee import cardbody_style, card_icon, cardimg_style, card_style
 from helping_components import output_card
 import Analytics_page
+#%%
 from Data import LSMS_df
 from Data import LSMS2_df
-
+from Data import LSMS3
+#%%
 app = dash.Dash(__name__, external_stylesheets= [dbc.themes.CYBORG, dbc.icons.BOOTSTRAP, dbc.icons.FONT_AWESOME])
 img2 = './Img/stephen-dawson-qwtCeJ5cLYs-unsplash.jpeg'
 
