@@ -237,9 +237,8 @@ def render_state_avg_income(state_selected):
               Input(component_id='labour_type', component_property='value'),
               )
 def update_graph(labour_selected, avg_Inc ):
-    #dff = LSMS2_df[LSMS2_df['labour_type']==labour_selected]
-    df= LSMS2_df.groupby(['labour_type'])['Income_earn'].mean()
-    fig2=px.bar(data_frame=df,
+    dff = LSMS2_df[LSMS2_df['labour_type']==labour_selected]
+    fig2=px.bar(data_frame=dff,
                 x='labour_type',
                 y='Income_dist',
                 color='labour_type',
