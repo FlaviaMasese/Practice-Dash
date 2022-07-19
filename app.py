@@ -245,7 +245,7 @@ def render_labour_avg_income(labour_selected):
 @app.callback(Output(component_id='cre', component_property='children'),
               Input(component_id='state_dropdown', component_property='value')
               )
-def render_state_avg_income(state_selected):
+def render_state_avg_credit(state_selected):
     state22_df = LSMS3[LSMS3['state_name'] == state_selected] 
     state22_Inc_Avg = state22_df['credit'].mean()  
     return f'{round(state22_Inc_Avg, 2)}'  
@@ -253,7 +253,7 @@ def render_state_avg_income(state_selected):
 @app.callback(Output(component_id='cre1', component_property='children'),
               Input(component_id='state_dropdown', component_property='value')
               )
-def render_state_avg_income(state_selected):
+def render_state_avg_credit(state_selected):
     state23_df = LSMS3[LSMS3['state_name'] == state_selected] 
     state23_Inc_Avg = state23_df['credit'].mean()  
     return f'{round(state23_Inc_Avg, 2)}'
@@ -261,7 +261,7 @@ def render_state_avg_income(state_selected):
 @app.callback(Output(component_id='cre2', component_property='children'),
               Input(component_id='state_dropdown', component_property='value')
               )
-def render_state_avg_income(state_selected):
+def render_state_avg_credit(state_selected):
     state24_df = LSMS3[LSMS3['state_name'] == state_selected] 
     state24_Inc_Avg = state24_df['credit'].mean()  
     return f'{round(state24_Inc_Avg, 2)}'
