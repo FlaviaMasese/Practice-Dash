@@ -231,28 +231,14 @@ def render_state_avg_income(state_selected):
     return f'{round(state5_Inc_Avg, 2)}'
 
 
-@app.callback(Output(component_id='state2_graph', component_property='figure'),
-              Output(component_id='Avg_Inc', component_property='children'),
-              Input(component_id='labour_dropdown', component_property='value'),
-              Input(component_id='labour_type', component_property='value'),
+@app.callback(Output(component_id='Avg_Inc', component_property='children'),
+              Input(component_id='labour_dropdown', component_property='value')
               )
-def update_graph(labour_selected, avg_Inc ):
-    dff = LSMS2_df[LSMS2_df['labour_type']==labour_selected]
-    fig2=px.bar(data_frame=dff,
-                x='labour_type',
-                y='Income_dist',
-                color='labour_type',
-                opacity=0.9,
-                orientation='v',
-                barmode='relative',
-                hover_name='Income_dist',
-                template='plotly_dark',
-                animation_frame='labour_type',
-                title=f'Graph of {labour_selected}'
-                )
-    state12_df = LSMS2_df[LSMS2_df['labour_type'] == labour_selected] 
-    state12_avg_expd = state12_df['Income_dist'].mean()  
-    return fig2, f'{round(state12_avg_expd, 2)}'
+def render_state_avg_income(labour_selected):
+    state51_df = LSMS2_df[LSMS2_df['labour_type'] == labour_selected] 
+    state51_Inc_Avg = state51_df['Income_dist'].mean()  
+    return f'{round(state51_Inc_Avg, 2)}'
+    
 
 
 @app.callback(
