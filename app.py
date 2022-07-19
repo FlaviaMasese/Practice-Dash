@@ -230,18 +230,35 @@ def render_state_avg_income(state_selected):
     state5_Inc_Avg = state5_df['Income_dist'].max()  
     return f'{round(state5_Inc_Avg, 2)}'
 
-#@app.callback(Output(component_id='Avg_Inc', component_property='children'),
-              #Input(component_id='state_dropdown', component_property='value'),
-              #)
-#def render_state_avg_income(state_selected):
-    #state6_df = LSMS2_df[LSMS2_df['state_name'] == state_selected] 
-    #state6_Inc_Avg = state6_df['Income_dist'].mean()  
-    #return f'{round(state6_Inc_Avg, 2)}'
+
+@app.callback(Output(component_id='state2_graph', component_property='figure'),
+              Output(component_id='Avg_Inc', component_property='children'),
+              Input(component_id='labour_dropdown', component_property='value'),
+              Input(component_id='labour_type', component_property='value'),
+              )
+def update_graph(labour_selected, avg_Inc ):
+    dff = LSMS2_df[LSMS2_df['state_name']==labour_selected]
+    fig2=px.bar(data_frame=dff,
+                x='labour_type',
+                y='Income_dist',
+                color='labour_type',
+                opacity=0.9,
+                orientation='v',
+                barmode='relative',
+                hover_name='Income_dist',
+                template='plotly_dark',
+                animation_frame='labour_type',
+                title=f'Graph of {labour_selected}'
+                )
+    state12_df = LSMS2_df[LSMS2_df['labour_type'] == labour_selected] 
+    state12_avg_expd = state12_df['Income_dist'].mean()  
+    return fig2, f'{round(state12_avg_expd, 2)}'
+
 
 @app.callback(
               Output("content", "children"),
               Input("income_sidebar", "n_clicks_timestamp"),
-              Input("Items_sidebar", "n_clicks_timestamp"),
+              Input("Credit_sidebar", "n_clicks_timestamp"),
               Input("expend_sidebar", "n_clicks_timestamp")
               )
 

@@ -186,12 +186,19 @@ income_page =html.Div([
                     dbc.Col(lg=1),
                     dbc.Col(lg=2, #style={'marginRight': '2%'},
                             children=[
-                                dbc.Label('Select State'),
-                                dcc.Dropdown(id='state_dropdown',
-                                                options=[{'label': state, 'value': state}
-                                                        for state in LSMS_df['state_name'].unique()
+                                #dbc.Label('Select State'),
+                                #dcc.Dropdown(id='state_dropdown',
+                                                #options=[{'label': state, 'value': state}
+                                                        #for state in LSMS_df['state_name'].unique()
+                                                        #],
+                                                #placeholder='Select states'
+                                                #)
+                                dbc.Label('Labour Type'),
+                                dcc.Dropdown(id='labour_dropdown',
+                                                options=[{'label': 'labour_type', 'value': 'labour_type'}
+                                                        for labour_type in LSMS2_df['labour_type'].unique()
                                                         ],
-                                                placeholder='Select states'
+                                                placeholder='Select labour type'
                                                 )
                             ]
                         
