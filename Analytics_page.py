@@ -273,31 +273,35 @@ Credit_page = html.Div([
                                                                  )
                                                 ]
                         
-                                    )
-                            ]
-                    ),
+                                    ),
+                                     
                             
-                    html.Br(),                 
-                    dbc.Row(dbc.Row([dbc.Col(lg=1),
-                    output_card(card_id='cre', card_label='Average Income')
+                                      
+                            
+                                    html.Br(),                 
+                                    dbc.Col(dbc.Row([dbc.Col(lg=1),
+                                    output_card(card_id='cre', card_label='Average Income')
                     
-                    ])
-            ),
-                    #dbc.Row([output_card(card_id='newcard', card_label='test card')]),
-                    html.Br(),  
-                    dbc.Row(dbc.Row([dbc.Col(lg=1),
-                    output_card(card_id='cre1', card_label='Min Average Credit')
+                                     ])
+                                            ),
                     
-                    ]
-                    )
-            ),
-                    html.Br(),
-                    dbc.Row(dbc.Row([dbc.Col(lg=1),
-                    output_card(card_id='cre2', card_label='Max Average Credit')
-                                  ])
+                                    html.Br(),  
+                                    dbc.Col(dbc.Row([dbc.Col(lg=1),
+                                    output_card(card_id='cre1', card_label='Min Average Credit')
+                    
+                                                 ])
+                                    ),
+                                    html.Br(),
+                                    dbc.Col(dbc.Row([dbc.Col(lg=1),
+                                    output_card(card_id='cre2', card_label='Max Average Credit')
+                                                    ])
                    
-                   )
+                                            )
                     
+                        ]
+                )
+                
+                            
 
 ])
 
