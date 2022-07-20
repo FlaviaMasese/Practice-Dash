@@ -275,34 +275,34 @@ Credit_page = html.Div([
                         
                                     ),
                                      
-                            
+                                     dbc.Row([output_card(card_id='cre', card_label='test card')]),
+                                     dbc.Row([output_card(card_id='cre1', card_label='test card')]),
+                                     dbc.Row([output_card(card_id='cre2', card_label='test card')]),
                                       
                             
-                                    html.Br(),                 
-                                    dbc.Col(dbc.Row([dbc.Col(lg=1),
-                                    output_card(card_id='cre', card_label='Average Income')
+                                    #html.Br(),                 
+                                    #dbc.Row(dbc.Row([dbc.Col(lg=1),
+                                                     #output_card(card_id='cre', card_label='Average Income')
                     
-                                     ])
-                                            ),
+                                     #])
+                                           # ),
                     
-                                    html.Br(),  
-                                    dbc.Col(dbc.Row([dbc.Col(lg=1),
-                                    output_card(card_id='cre1', card_label='Min Average Credit')
+                                    #html.Br(),  
+                                    #dbc.Col(dbc.Row([dbc.Col(lg=1),
+                                    #output_card(card_id='cre1', card_label='Min Average Credit')
                     
-                                                 ])
-                                    ),
-                                    html.Br(),
-                                    dbc.Col(dbc.Row([dbc.Col(lg=1),
-                                    output_card(card_id='cre2', card_label='Max Average Credit')
-                                                    ])
+                                                 #])
+                                    #),
+                                    #html.Br(),
+                                    #dbc.Col(dbc.Row([dbc.Col(lg=1),
+                                    #output_card(card_id='cre2', card_label='Max Average Credit')
+                                                    #])
                    
-                                            )
+                                            #)
                     
                         ]
                 )
                 
-                            
-
 ])
 
 welcome_page = html.Div([
