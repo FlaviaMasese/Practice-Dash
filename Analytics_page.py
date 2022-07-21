@@ -280,7 +280,7 @@ Credit_page = html.Div([
                                       
                             
                                     html.Br(),                 
-                                    dbc.Row(dbc.Row([dbc.Col(lg=1),
+                                    dbc.Col(dbc.Row([dbc.Col(lg=1),
                                                      output_card(card_id='cre', card_label='Average Income')
                     
                                      ])
