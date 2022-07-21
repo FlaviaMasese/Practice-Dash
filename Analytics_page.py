@@ -8,6 +8,7 @@ from datar.all import case_when, f, mutate, pivot_wider
 from Data import LSMS_df
 from Data import LSMS2_df
 
+dff=LSMS2_df.groupby(['labour_type'])['Income_dist'].mean()
 
 expend_page = html.Div([
     dbc.Row(

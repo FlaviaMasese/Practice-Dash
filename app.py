@@ -238,7 +238,7 @@ def render_state_avg_income(state_selected):
               Input(component_id='labour_dropdown', component_property='value')
               )
 def render_labour_avg_income(labour_selected):
-    state51_df = LSMS2_df[LSMS2_df['labour_type'] == labour_selected] 
+    state51_df = dff[dff['labour_type'] == labour_selected] 
     state51_Inc_Avg = state51_df['Income_dist'].min()
     return f'{round(state51_df, 2)}'
     
