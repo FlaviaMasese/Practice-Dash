@@ -60,3 +60,5 @@ LSMS3 = pd.read_csv(r'C:\Users\flavi\Downloads\data for practice\sect4c2_plantiN
 LSMS3.rename(columns={'s4cq6':'credit',},inplace=True)
 LSMS3
 #%%
+LSMS1_df = mutate(LSMS_df,Items=case_when(f.sector==1,'purchased', f.sector==2,'Not purchased')
+                                      .drop(columns='purchase'))

@@ -18,6 +18,7 @@ import Analytics_page
 from Data import LSMS_df
 from Data import LSMS2_df
 from Data import LSMS3
+from Data import LSMS1_df
 #%%
 app = dash.Dash(__name__, external_stylesheets= [dbc.themes.CYBORG, dbc.icons.BOOTSTRAP, dbc.icons.FONT_AWESOME])
 img2 = './Img/stephen-dawson-qwtCeJ5cLYs-unsplash.jpeg'
