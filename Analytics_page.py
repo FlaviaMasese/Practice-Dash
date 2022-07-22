@@ -280,20 +280,20 @@ Credit_page = html.Div([
                                       
                             
                                     html.Br(),                 
-                                    dbc.Col(dbc.Row([dbc.Col(lg=1),
-                                                     output_card(card_id='cre', card_label='Average Income')
+                                    dbc.Col(dbc.Row([dbc.Col(lg=2),
+                                                     output_card(card_id='cre', card_label='Average Credit')
                     
                                      ])
                                             ),
                     
                                     html.Br(),  
-                                    dbc.Col(dbc.Row([dbc.Col(lg=1),
+                                    dbc.Col(dbc.Row([dbc.Col(lg=2),
                                     output_card(card_id='cre1', card_label='Min Average Credit')
                     
                                                  ])
                                     ),
                                     html.Br(),
-                                    dbc.Col(dbc.Row([dbc.Col(lg=1),
+                                    dbc.Col(dbc.Row([dbc.Col(lg=2),
                                     output_card(card_id='cre2', card_label='Max Average Credit')
                                                     ])
                    
