@@ -236,12 +236,18 @@ def render_state_avg_income(state_selected):
 
 
 @app.callback(Output(component_id='Avg_Inc', component_property='children'),
-              Input(component_id='labour_dropdown', component_property='value')
+              Output(component_id='histo_graph', component_property='figure'),
+              Input(component_id='state_dropdown', component_property='value'),
+              Input(component_id='state_name', component_property='value')
               )
-def render_labour_avg_income(labour_selected):
-    state51_df = LSMS2_df[LSMS2_df['labour_type'] == labour_selected] 
-    state51_Inc_Avg = state51_df['Income_dist'].mean()
-    return f'{round(state51_df, 2)}'
+def update_graph(state_selected,Avg_selected):
+    fig2 = px.histogram(LSMS1_df, x="item_desc", y="expenditure",
+             color='Items', barmode='group',
+             histfunc='avg',
+             height=400)
+    state51_df = LSMS1_df[LSMS1_df['state_name'] == state_selected] 
+    state51_avg_expd = state51_df['expenditure'].mean()  
+    return fig2, f'{round(state51_avg_expd, 2)}'
     
 @app.callback(Output(component_id='cre', component_property='children'),
               Input(component_id='state_dropdown', component_property='value')

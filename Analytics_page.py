@@ -186,15 +186,15 @@ income_page =html.Div([
                     dbc.Col(lg=1),
                     dbc.Col(lg=2, #style={'marginRight': '2%'},
                             children=[
-                                #dbc.Label('Select State'),
-                                #dcc.Dropdown(id='state_dropdown',
-                                                #options=[{'label': state, 'value': state}
-                                                        #for state in LSMS_df['state_name'].unique()
-                                                        #],
-                                                #placeholder='Select states'
-                                                #)
-                                dbc.Label('Labour Type'),
-                                dcc.Dropdown(LSMS2_df.labour_type.unique(), id='labour_type',placeholder='Select labour type')
+                                dbc.Label('Select State'),
+                                dcc.Dropdown(id='state_dropdown',
+                                                options=[{'label': state, 'value': state}
+                                                        for state in LSMS_df['state_name'].unique()
+                                                        ],
+                                                placeholder='Select states'
+                                                )
+                                #dbc.Label('Labour Type'),
+                                #dcc.Dropdown(LSMS2_df.labour_type.unique(), id='labour_type',placeholder='Select labour type')
                             ]
                         
                     ),
@@ -234,14 +234,12 @@ income_page =html.Div([
                                     #dbc.Row([html.Div([('Average Income distribution per labour type'),
      #dcc.Dropdown(LSMS2_df.labour_type.unique(), id='labour_type',placeholder='Select labour type'),
                                               
-     #html.Div(id='output_container',children=[]),
-     #html.Br(),
-     #dcc.Graph(id='state2_graph'),
-                            #])
+     html.Div(id='output_container',children=[]),
+     html.Br(),
+     dcc.Graph(id='histo_graph'),
+                        ]
+                        )
                     
-                                    #])
-                            ]
-                    )
                     
             ]
     )
