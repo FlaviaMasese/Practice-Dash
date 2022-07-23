@@ -1,4 +1,4 @@
-#%%
+
 import pandas as pd
 import numpy as np
 import plotly.express as px
@@ -19,6 +19,7 @@ from Data import LSMS_df
 from Data import LSMS2_df
 from Data import LSMS3
 from Data import LSMS1_df
+LSMS1_df.columns
 #%%
 app = dash.Dash(__name__, external_stylesheets= [dbc.themes.CYBORG, dbc.icons.BOOTSTRAP, dbc.icons.FONT_AWESOME])
 img2 = './Img/stephen-dawson-qwtCeJ5cLYs-unsplash.jpeg'
@@ -247,7 +248,7 @@ def update_graph(state_selected,Avg_selected):
              height=400)
     state51_df = LSMS1_df[LSMS1_df['state_name'] == state_selected] 
     state51_avg_expd = state51_df['expenditure'].mean()  
-    return fig2, f'{round(state51_avg_expd, 2)}'
+    return  f'{round(state51_avg_expd, 2)}',fig2
     
 @app.callback(Output(component_id='cre', component_property='children'),
               Input(component_id='state_dropdown', component_property='value')
@@ -296,4 +297,4 @@ def show_sidebar_content(income_sidebar: str, Credit_sidebar: str, expend_sideba
     else:
         return Analytics_page.welcome_page
 if __name__ == '__main__':
-    app.run_server(debug=False,use_reloader=False,)
+    app.run_server(debug=True,use_reloader=False,)
